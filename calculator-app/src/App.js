@@ -11,8 +11,20 @@
     }
 
     const backspace = () => {
-        setResult(result.slice(0, result.length -1));
+        setResult(result.slice(0, result.length -1)); // Or -1
     }
+    const calculate =() => {
+        try{
+            // eslint-disable-next-line
+            setResult(eval(result).toString())
+
+        }catch(err)
+        {
+            setResult("Error")
+        }
+        
+    } 
+
     return(
         <>
         <div className="container">
@@ -37,7 +49,7 @@
                 <button className="highlight" name ="+" onClick={handleClick}>+</button>
                 <button name ="0" onClick={handleClick}>0</button>
                 <button name ="." onClick={handleClick}>.</button>
-                <button className="highlight" onClick={handleClick}id="result">=</button>
+                <button className="highlight" onClick={calculate}id="result">=</button>
             </div>
             
         </div>
